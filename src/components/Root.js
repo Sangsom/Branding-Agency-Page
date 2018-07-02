@@ -1,13 +1,20 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import Header from "./Header";
+
+const RootWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 class Root extends Component {
-	render() {
-		return (
-			<React.Fragment>
-				<h1>Root</h1>
-			</React.Fragment>
-		);
-	}
+    render() {
+        return (
+            <RootWrapper>
+                <Header />
+            </RootWrapper>
+        );
+    }
 }
 
 export default Root;
