@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import About from "./About";
 import Numbers from "./Numbers";
+import BestProjects from "./BestProjects";
 
 const RootWrapper = styled.div`
     display: flex;
@@ -16,6 +17,7 @@ class Root extends Component {
                 <Header />
                 <About />
                 <Numbers />
+                <BestProjects />
             </RootWrapper>
         );
     }
