@@ -5,6 +5,7 @@ import About from "./About";
 import Numbers from "./Numbers";
 import BestProjects from "./BestProjects";
 import Testimonials from "./Testimonials";
+import Clients from "./Clients";
 
 const RootWrapper = styled.div`
     display: flex;
@@ -20,6 +21,7 @@ class Root extends Component {
                 <Numbers />
                 <BestProjects />
                 <Testimonials />
+                <Clients />
             </RootWrapper>
         );
     }
