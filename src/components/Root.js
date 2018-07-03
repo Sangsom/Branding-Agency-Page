@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import About from "./About";
+import Numbers from "./Numbers";
 
 const RootWrapper = styled.div`
     display: flex;
@@ -14,6 +15,7 @@ class Root extends Component {
             <RootWrapper>
                 <Header />
                 <About />
+                <Numbers />
             </RootWrapper>
         );
     }
