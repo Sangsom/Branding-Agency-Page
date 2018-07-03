@@ -8,7 +8,7 @@ const NumbersStyled = styled.div`
     justify-content: space-around;
     align-items: center;
     min-height: 260px;
-    background-image: url("./img/pattern bg.png");
+    background: url("./img/pattern bg.png") repeat center center fixed;
 `;
 
 const data = [
