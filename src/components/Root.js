@@ -7,10 +7,16 @@ import BestProjects from "./BestProjects";
 import Testimonials from "./Testimonials";
 import Clients from "./Clients";
 import LatestBlog from "./LatestBlog";
+import Contacts from "./Contacts";
 
 const RootWrapper = styled.div`
     display: flex;
     flex-direction: column;
+`;
+
+const HrLine = styled.hr`
+    border: 1px solid #ececec;
+    margin: 0;
 `;
 
 class Root extends Component {
@@ -24,7 +30,8 @@ class Root extends Component {
                 <Testimonials />
                 <Clients />
                 <LatestBlog />
-                <hr />
+                <HrLine />
+                <Contacts />
             </RootWrapper>
         );
     }
