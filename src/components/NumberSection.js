@@ -8,12 +8,14 @@ const NumberSectionStyled = styled.div`
     height: 100px;
     padding: 20px;
     color: #fff;
+    position: relative;
 `;
 
 const Img = styled.img`
     width: 50px;
     max-width: 100%;
-    padding: 20px;
+    margin: 20px;
+    display: block;
 `;
 
 const TextContainer = styled.div`
