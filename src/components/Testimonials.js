@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Pagination from "./Pagination";
 
 const TestimonialsStyled = styled.article`
     min-height: 500px;
@@ -36,33 +37,6 @@ const TestimonialsStyled = styled.article`
     }
 `;
 
-const Pagination = styled.div`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 50px;
-    height: 20px;
-    position: absolute;
-    bottom: 50px;
-
-    div {
-        width: 7px;
-        height: 7px;
-        background-color: #5b5b5b;
-        border-radius: 50%;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    div:nth-child(2) {
-        background: #fff;
-        width: 10px;
-        height: 10px;
-    }
-`;
-
 class Testimonials extends Component {
     render() {
         return (
@@ -73,11 +47,7 @@ class Testimonials extends Component {
                     looking forward to start the next one asap.
                 </q>
                 <p>Michael Hopkins</p>
-                <Pagination>
-                    <div />
-                    <div />
-                    <div />
-                </Pagination>
+                <Pagination light />
             </TestimonialsStyled>
         );
     }
