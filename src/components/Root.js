@@ -8,6 +8,7 @@ import Testimonials from "./Testimonials";
 import Clients from "./Clients";
 import LatestBlog from "./LatestBlog";
 import Contacts from "./Contacts";
+import Footer from "./Footer";
 
 const RootWrapper = styled.div`
     display: flex;
@@ -32,6 +33,7 @@ class Root extends Component {
                 <LatestBlog />
                 <HrLine />
                 <Contacts />
+                <Footer />
             </RootWrapper>
         );
     }
