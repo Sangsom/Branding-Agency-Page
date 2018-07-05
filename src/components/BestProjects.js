@@ -9,6 +9,7 @@ const BestProjectsStyled = styled.div`
     justify-content: center;
     align-items: center;
     min-height: 1450px;
+    padding-bottom: 100px;
 `;
 
 const ProjectsGrid = styled.div`
@@ -21,6 +22,30 @@ const ProjectsGrid = styled.div`
         "three one four"
         "five six four"
         "five seven eight";
+
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(2, minmax(150px, 370px));
+        grid-template-areas:
+            "zero one"
+            "two one"
+            "four three"
+            "six five"
+            "seven eight";
+    }
+
+    @media (max-width: 862px) {
+        grid-template-columns: minmax(150px, 370px);
+        grid-template-areas:
+            "zero"
+            "one"
+            "two"
+            "three"
+            "four"
+            "five"
+            "six"
+            "seven"
+            "eight";
+    }
 `;
 
 const Project = styled.div`
@@ -31,7 +56,9 @@ const Project = styled.div`
     grid-area: ${props => (props.area ? props.area : "")};
     min-height: 250px;
     text-align: center;
-    background: ${props => (props.img ? `url(../img/${props.img})` : "#fff")};
+    background: ${props => (props.img ? `url(../img/${props.img})` : "#fff")}
+        no-repeat center center;
+    background-size: cover;
 
     h2 {
         font-family: "Playfair Display", serif;
@@ -54,27 +81,27 @@ const Project = styled.div`
 
 const projects = [
     {
-        img: "project-bg-small.png",
+        img: "project0.jpg",
         area: "zero"
     },
     {
-        img: "project-bg-big.png",
+        img: "project1.jpg",
         area: "one"
     },
     {
-        img: "project-bg-small.png",
+        img: "project2.jpg",
         area: "two"
     },
     {
-        img: "project-bg-small.png",
+        img: "project3.jpg",
         area: "three"
     },
     {
-        img: "project-bg-big.png",
+        img: "project4.jpg",
         area: "four"
     },
     {
-        img: "project-bg-big.png",
+        img: "project5.jpg",
         area: "five"
     },
     {
@@ -86,44 +113,38 @@ const projects = [
         }
     },
     {
-        img: "project-bg-small.png",
+        img: "project7.jpg",
         area: "seven"
     },
     {
-        img: "project-bg-small.png",
+        img: "project8.jpg",
         area: "eight"
     }
 ];
 
-class BestProjects extends Component {
-    render() {
-        return (
-            <BestProjectsStyled>
-                <SectionHeader>Best Projects</SectionHeader>
-                <SectionText>
-                    Donec orci sem, pretium ac dolor et, faucibus faucibus
-                    mauris. Etiam,pellentesque faucibus. Vestibulum gravida
-                    volutpat ipsum non ultrices.
-                </SectionText>
-                <ProjectsGrid>
-                    {projects.map((project, index) => (
-                        <Project
-                            key={index}
-                            area={project.area}
-                            img={project.img}
-                        >
-                            {project.text ? (
-                                <React.Fragment>
-                                    <h2>{project.text.title}</h2>
-                                    <h3>{project.text.subtitle}</h3>
-                                </React.Fragment>
-                            ) : null}
-                        </Project>
-                    ))}
-                </ProjectsGrid>
-            </BestProjectsStyled>
-        );
-    }
-}
+const BestProjects = () => {
+    return (
+        <BestProjectsStyled>
+            <SectionHeader>Best Projects</SectionHeader>
+            <SectionText>
+                Donec orci sem, pretium ac dolor et, faucibus faucibus mauris.
+                Etiam,pellentesque faucibus. Vestibulum gravida volutpat ipsum
+                non ultrices.
+            </SectionText>
+            <ProjectsGrid>
+                {projects.map((project, index) => (
+                    <Project key={index} area={project.area} img={project.img}>
+                        {project.text ? (
+                            <React.Fragment>
+                                <h2>{project.text.title}</h2>
+                                <h3>{project.text.subtitle}</h3>
+                            </React.Fragment>
+                        ) : null}
+                    </Project>
+                ))}
+            </ProjectsGrid>
+        </BestProjectsStyled>
+    );
+};
 
 export default BestProjects;
