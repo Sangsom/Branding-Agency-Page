@@ -6,8 +6,7 @@ const BannerStyled = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
-    height: 100%;
+    height: calc(100% - 100px);
 `;
 
 const BannerText = styled.div`

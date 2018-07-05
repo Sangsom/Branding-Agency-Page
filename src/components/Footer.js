@@ -156,7 +156,10 @@ class Footer extends Component {
                         </p>
                         <SocialLinks>
                             {socialLinks.map((link, index) => (
-                                <SocialIcon src={`./img/${link.icon}`} />
+                                <SocialIcon
+                                    key={index}
+                                    src={`./img/${link.icon}`}
+                                />
                             ))}
                         </SocialLinks>
                     </About>

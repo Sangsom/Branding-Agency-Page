@@ -1,51 +1,118 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import logo from "../img/logo.png";
-import Banner from "./Banner";
+import About from "./About";
+import Contacts from "./Contacts";
+import LatestBlog from "./LatestBlog";
 
-const HeaderStyled = styled.div`
-    display: flex;
+const HeaderStyled = styled.header`
+    height: 100vh;
     min-height: 670px;
-    background-color: #636363;
-    flex-direction: column;
+    background: url("./img/header-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
 `;
 
-const HeaderMenu = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+const CoverBgImg = styled.div`
+    position: relative;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+`;
+
+const StickyNavigation = styled.div`
+    position: fixed;
+    top: 0;
+    width: 100%;
     height: 100px;
-    padding: 0 10%;
-`;
+    background: ${props => (props.update ? "#fff" : "")};
 
-const Logo = styled.div``;
-
-const Hamburger = styled.div`
-    display: inline-block;
-
-    & div {
-        width: 35px;
-        height: 3px;
-        background-color: #fff;
-        margin: 6px 0;
+    div {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
     }
+
+    img {
+        width: 82px;
+        max-width: 100%;
+        height: auto;
+    }
+`;
+const NavLinks = styled.nav``;
+const Link = styled.a`
+    font-family: "Work Sans", sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 14.6px;
+    color: ${props =>
+        props.update ? "rgb(95, 95, 95)" : "rgb(184, 184, 184)"};
+
+    &:hover {
+        color: ${props =>
+            props.update ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"};
+    }
+    transition: 0.5s;
 `;
 
 class Header extends Component {
+    state = {
+        changeBg: false
+    };
+
+    componentDidMount = () => {
+        window.addEventListener("scroll", this.handleScroll);
+    };
+
+    componentWillUnmount = () => {
+        window.removeEventListener("scroll", this.handleScroll);
+    };
+
+    /**
+     * Handles changeBg state
+     * @method
+     */
+    handleScroll = event => {
+        event.pageY > 100
+            ? this.setState({ changeBg: true })
+            : this.setState({ changeBg: false });
+    };
+
     render() {
+        const { changeBg } = this.state;
+
         return (
             <HeaderStyled>
-                <HeaderMenu>
-                    <Logo>
-                        <img src={logo} alt="" />
-                    </Logo>
-                    <Hamburger>
-                        <div />
-                        <div />
-                        <div />
-                    </Hamburger>
-                </HeaderMenu>
-                <Banner />
+                <CoverBgImg>
+                    <StickyNavigation update={changeBg}>
+                        <div>
+                            {changeBg ? (
+                                <img src="./img/logo-dark.png" alt="Logo" />
+                            ) : (
+                                <img src="./img/logo-light.png" alt="Logo" />
+                            )}
+
+                            <NavLinks>
+                                <Link update={changeBg} href="#about">
+                                    About
+                                </Link>
+                                <Link update={changeBg} href="#contact">
+                                    Contacts
+                                </Link>
+                                <Link update={changeBg} href="#portfolio">
+                                    Portfolio
+                                </Link>
+                                <Link update={changeBg} href="#blog">
+                                    Blog
+                                </Link>
+                                <Link update={changeBg} href="#wordpress">
+                                    Wordpress theme
+                                </Link>
+                            </NavLinks>
+                        </div>
+                    </StickyNavigation>
+                </CoverBgImg>
             </HeaderStyled>
         );
     }
