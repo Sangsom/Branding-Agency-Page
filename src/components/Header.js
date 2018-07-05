@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import About from "./About";
-import Contacts from "./Contacts";
-import LatestBlog from "./LatestBlog";
+import Banner from "./Banner";
+import Navigation from "./Navigation";
+
+/**
+ * TODO:
+ * - Responsive Header
+ * - Hamburger Menu
+ */
 
 const HeaderStyled = styled.header`
     height: 100vh;
@@ -15,45 +20,6 @@ const CoverBgImg = styled.div`
     position: relative;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-`;
-
-const StickyNavigation = styled.div`
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    background: ${props => (props.update ? "#fff" : "")};
-
-    div {
-        width: 80%;
-        margin: auto;
-        display: flex;
-        height: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    img {
-        width: 82px;
-        max-width: 100%;
-        height: auto;
-    }
-`;
-const NavLinks = styled.nav``;
-const Link = styled.a`
-    font-family: "Work Sans", sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 6px 14.6px;
-    color: ${props =>
-        props.update ? "rgb(95, 95, 95)" : "rgb(184, 184, 184)"};
-
-    &:hover {
-        color: ${props =>
-            props.update ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"};
-    }
-    transition: 0.5s;
 `;
 
 class Header extends Component {
@@ -72,6 +38,7 @@ class Header extends Component {
     /**
      * Handles changeBg state
      * @method
+     * @param {object} event - The Event Object
      */
     handleScroll = event => {
         event.pageY > 100
@@ -79,39 +46,28 @@ class Header extends Component {
             : this.setState({ changeBg: false });
     };
 
+    /**
+     * Scrolls down to About section
+     * @method
+     */
+    scrollDown = () => {
+        const about = document.getElementById("about");
+
+        window.scrollTo({
+            top: about.offsetTop,
+            behavior: "smooth"
+        });
+    };
+
     render() {
         const { changeBg } = this.state;
+        const { scrollDown } = this;
 
         return (
-            <HeaderStyled>
+            <HeaderStyled id="top">
                 <CoverBgImg>
-                    <StickyNavigation update={changeBg}>
-                        <div>
-                            {changeBg ? (
-                                <img src="./img/logo-dark.png" alt="Logo" />
-                            ) : (
-                                <img src="./img/logo-light.png" alt="Logo" />
-                            )}
-
-                            <NavLinks>
-                                <Link update={changeBg} href="#about">
-                                    About
-                                </Link>
-                                <Link update={changeBg} href="#contact">
-                                    Contacts
-                                </Link>
-                                <Link update={changeBg} href="#portfolio">
-                                    Portfolio
-                                </Link>
-                                <Link update={changeBg} href="#blog">
-                                    Blog
-                                </Link>
-                                <Link update={changeBg} href="#wordpress">
-                                    Wordpress theme
-                                </Link>
-                            </NavLinks>
-                        </div>
-                    </StickyNavigation>
+                    <Navigation changeBg={changeBg} />
+                    <Banner scrollDown={scrollDown} />
                 </CoverBgImg>
             </HeaderStyled>
         );

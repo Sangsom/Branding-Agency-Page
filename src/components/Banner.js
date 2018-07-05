@@ -6,7 +6,7 @@ const BannerStyled = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: calc(100% - 100px);
+    height: 100%;
 `;
 
 const BannerText = styled.div`
@@ -48,6 +48,13 @@ const Arrow = styled.div`
     justify-content: center;
     transform: rotate(90deg);
     color: rgba(255, 255, 255, 0.4);
+    transition: 0.5s;
+
+    &:hover {
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+    }
 
     span {
         font-size: 20px;
@@ -68,7 +75,7 @@ class Banner extends Component {
                     <h3>you publish on web</h3>
                 </BannerText>
 
-                <Arrow>
+                <Arrow onClick={this.props.scrollDown}>
                     <span>></span>
                 </Arrow>
             </BannerStyled>

@@ -20,7 +20,7 @@ const AboutStyled = styled.div`
 class About extends Component {
     render() {
         return (
-            <AboutStyled>
+            <AboutStyled id="about">
                 <SectionHeader>About Our Agency</SectionHeader>
                 <SectionText>
                     We are a new design studio based in USA. We have over 20
