@@ -28,6 +28,10 @@ const BannerText = styled.div`
         font-weight: 700;
         font-size: 48px;
         margin: 0;
+
+        @media (max-width: 700px) {
+            font-size: 30px;
+        }
     }
 
     h3 {
