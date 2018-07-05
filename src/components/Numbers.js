@@ -9,6 +9,12 @@ const NumbersStyled = styled.div`
     align-items: center;
     min-height: 260px;
     background: url("./img/pattern bg.png") repeat center center fixed;
+    transition: 0.5s;
+
+    @media (max-width: 568px) {
+        justify-content: flex-start;
+        padding-left: 5%;
+    }
 `;
 
 const data = [
@@ -34,16 +40,14 @@ const data = [
     }
 ];
 
-class Numbers extends Component {
-    render() {
-        return (
-            <NumbersStyled>
-                {data.map((data, index) => (
-                    <NumberSection key={index} data={data} />
-                ))}
-            </NumbersStyled>
-        );
-    }
-}
+const Numbers = () => {
+    return (
+        <NumbersStyled>
+            {data.map((data, index) => (
+                <NumberSection key={index} data={data} />
+            ))}
+        </NumbersStyled>
+    );
+};
 
 export default Numbers;
