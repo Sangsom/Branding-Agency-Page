@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import styled, {
-    __DO_NOT_USE_OR_YOU_WILL_BE_HAUNTED_BY_SPOOKY_GHOSTS
-} from "styled-components";
+import styled from "styled-components";
 
 const StickyNavigation = styled.div`
     position: fixed;
