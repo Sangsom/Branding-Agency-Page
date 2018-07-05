@@ -45,6 +45,7 @@ const ProjectsGrid = styled.div`
             "six"
             "seven"
             "eight";
+        grid-gap: 0;
     }
 `;
 

@@ -28,12 +28,16 @@ const PaginationStyled = styled.div`
 	}
 `;
 
+const Left = styled.div``;
+const Center = styled.div``;
+const Right = styled.div``;
+
 const Pagination = props => {
     return (
         <PaginationStyled {...props}>
-            <div />
-            <div />
-            <div />
+            <Left onClick={props.handlePrev} />
+            <Center />
+            <Right onClick={props.handleNext} />
         </PaginationStyled>
     );
 };
