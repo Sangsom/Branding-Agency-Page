@@ -81,7 +81,7 @@ class Testimonials extends Component {
      * @method
      */
     prev = () => {
-        const { currentQuote, maxQuotes } = this.state;
+        const { currentQuote } = this.state;
         if (currentQuote - 1 > 0) {
             this.setState({ currentQuote: currentQuote - 1 });
         } else {
@@ -111,7 +111,7 @@ class Testimonials extends Component {
         return (
             <TestimonialsStyled>
                 {showQuote.map((quote, index) => (
-                    <React.Fragment>
+                    <React.Fragment key={index}>
                         <Quote>{quote.quote}</Quote>
                         <Author>{quote.author}</Author>
                     </React.Fragment>

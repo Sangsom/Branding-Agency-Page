@@ -16,7 +16,7 @@ const LatestBlogStyled = styled.div`
 
 const articles = [
     {
-        img: "",
+        img: "blog1.jpg",
         category: "nature",
         title: "Something I need to tell you",
         text:
@@ -24,7 +24,7 @@ const articles = [
         date: "May 16, 2016"
     },
     {
-        img: "",
+        img: "blog2.jpg",
         category: "branding",
         title: "Are you doing The Right Way?",
         text:
@@ -32,7 +32,7 @@ const articles = [
         date: "May 28, 2016"
     },
     {
-        img: "",
+        img: "blog3.jpg",
         category: "design",
         title: "Why you should Always First",
         text:
@@ -42,12 +42,19 @@ const articles = [
 ];
 
 const Articles = styled.div`
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 370px);
+    grid-template-columns: repeat(auto-fit, 370px);
+    justify-content: center;
     grid-gap: 30px;
+    padding: 50px 0 100px 0;
 `;
 const BlogItem = styled.article`
     box-shadow: 1px 1px 4px -2px rgba(76, 76, 76, 0.3);
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const BlogImage = styled.figure`
@@ -55,7 +62,10 @@ const BlogImage = styled.figure`
     margin: 0;
 `;
 
-const Img = styled.img``;
+const Img = styled.img`
+    max-width: 100%;
+    height: auto;
+`;
 
 const Category = styled.figcaption`
     display: inline-block;
@@ -114,7 +124,10 @@ class LatestBlog extends Component {
                     {articles.map((article, index) => (
                         <BlogItem key={index}>
                             <BlogImage>
-                                <Img src="./img/project-bg-small.png" alt="" />
+                                <Img
+                                    src={`./img/${article.img}`}
+                                    alt={article.title}
+                                />
                                 <Category>{article.category}</Category>
                             </BlogImage>
                             <BlogContent>
