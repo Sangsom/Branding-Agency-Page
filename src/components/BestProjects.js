@@ -125,7 +125,7 @@ const projects = [
 
 const BestProjects = () => {
     return (
-        <BestProjectsStyled>
+        <BestProjectsStyled id="portfolio">
             <SectionHeader>Best Projects</SectionHeader>
             <SectionText>
                 Donec orci sem, pretium ac dolor et, faucibus faucibus mauris.

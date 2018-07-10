@@ -112,7 +112,7 @@ const Text = styled.p`
 class LatestBlog extends Component {
     render() {
         return (
-            <LatestBlogStyled>
+            <LatestBlogStyled id="blog">
                 <SectionHeader>Latest Blog</SectionHeader>
                 <SectionText>
                     Donec orci sem, pretium ac dolor et, faucibus faucibus
