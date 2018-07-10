@@ -57,7 +57,7 @@ const Project = styled.div`
     grid-area: ${props => (props.area ? props.area : "")};
     min-height: 250px;
     text-align: center;
-    background: ${props => (props.img ? `url(../img/${props.img})` : "#fff")}
+    background: ${props => (props.img ? `url(./img/${props.img})` : "#fff")}
         no-repeat center center;
     background-size: cover;
 
