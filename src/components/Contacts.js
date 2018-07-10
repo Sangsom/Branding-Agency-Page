@@ -116,7 +116,7 @@ class Contacts extends Component {
     render() {
         return (
             <ContactsStyled>
-                <ContactDetails>
+                <ContactDetails id="contact">
                     <SectionHeader>Contact Info:</SectionHeader>
                     <SectionText>
                         Praesent interdum congue mauris, et fringilla lacus pel

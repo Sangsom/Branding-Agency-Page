@@ -17,8 +17,9 @@ const FooterContent = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(3, minmax(100px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 400px));
     grid-gap: 30px;
+    padding-bottom: 50px;
 `;
 
 const BoxHeader = styled.h2`
@@ -90,7 +91,14 @@ const InstagramWrapper = styled.div`
     grid-template-columns: repeat(4, 85px);
     grid-gap: 10px;
 `;
-const InstagramImg = styled.img``;
+const InstagramImg = styled.img`
+    width: 100%;
+    height: 85px;
+
+    &:hover {
+        cursor: pointer;
+    }
+`;
 
 const CopyRight = styled.div`
     max-height: 70px;
@@ -183,19 +191,19 @@ class Footer extends Component {
                     <Instagram>
                         <BoxHeader>Instagram</BoxHeader>
                         <InstagramWrapper>
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
-                            <InstagramImg src="./img/grey.png" />
+                            <InstagramImg src="./img/instagram1.jpg" />
+                            <InstagramImg src="./img/instagram2.jpg" />
+                            <InstagramImg src="./img/instagram3.jpg" />
+                            <InstagramImg src="./img/instagram4.jpg" />
+                            <InstagramImg src="./img/instagram5.jpg" />
+                            <InstagramImg src="./img/instagram6.jpg" />
+                            <InstagramImg src="./img/instagram7.jpg" />
+                            <InstagramImg src="./img/instagram8.jpg" />
                         </InstagramWrapper>
                     </Instagram>
                 </FooterContent>
                 <CopyRight>
-                    <p>&copy; {this.getYear()}. Created by Rinalds.</p>
+                    <p>&copy; {this.getYear()}. Created by Rinalds Domanovs.</p>
                 </CopyRight>
             </FooterStyled>
         );
