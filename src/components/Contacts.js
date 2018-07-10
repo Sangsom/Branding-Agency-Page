@@ -6,14 +6,21 @@ import SectionText from "./SectionText";
 const ContactsStyled = styled.div`
     background-color: #f6f6f6;
     display: flex;
+    flex-wrap: wrap;
     min-height: 620px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    justify-content: center;
+    align-items: center;
 `;
 
 const ContactDetails = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 100px;
+    padding-left: 10%;
+    padding-bottom: 50px;
     flex: 1;
 
     ${SectionText} {
@@ -31,6 +38,15 @@ const ContactDetails = styled.div`
     b {
         color: #171717;
     }
+
+    @media (max-width: 400px) {
+        padding-left: 0;
+        text-align: center;
+
+        ${SectionText} {
+            text-align: center;
+        }
+    }
 `;
 
 const ContactForm = styled.div`
@@ -41,13 +57,21 @@ const ContactForm = styled.div`
 `;
 
 const Form = styled.form`
-    width: 80%;
     display: grid;
     grid-template-areas:
         "name email"
         "title title"
         "comment comment";
     grid-gap: 30px;
+
+    @media (max-width: 500px) {
+        width: 100%;
+        grid-template-areas:
+            "name name"
+            "email email"
+            "title title"
+            "comment comment";
+    }
 `;
 const Input = styled.input`
     font-family: "Work Sans", sans-serif;
